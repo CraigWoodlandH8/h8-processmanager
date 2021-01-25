@@ -1,8 +1,12 @@
 const { spawn } = require("child_process");
 
 class Process {
-  constructor(name) {
-    this.filename = __dirname + 'modules/' + name + '.js';
+  constructor(name, basedir) {
+    this.filename = 'modules/' + name + '.js';
+
+    if(basedir !== undefined) {
+      this.filename = basedir + '/' + this.filename;
+    }
 
     this.run();
   }
