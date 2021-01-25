@@ -16,12 +16,20 @@ class Process {
 
     var parent = this, child = spawn('node', [ this.filename ]);
 
+    child.stdout.on('data', (data) => {
+      console.log('[Process]', '[stdout]', parent.filename, data);
+    });
+
+    child.stderr.on('data', (data) => {
+      console.log('[Process]', '[stderr]', parent.filename, data);
+    });
+
     child.on('error', (err) => {
-      console.log('[Process]', '[Error]', this.filename, err);
+      console.log('[Process]', '[Error]', parent.filename, err);
     });
 
     child.on('exit', (code) => {
-      console.log('[Process]', '[Exit]', this.filename, code);
+      console.log('[Process]', '[Exit]', parent.filename, code);
 
       setTimeout(() => {
         parent.run();
