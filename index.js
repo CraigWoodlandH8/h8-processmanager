@@ -26,13 +26,13 @@ class Process {
 
     child.stdout.on('data', (data) => {
       if(parent.verboseOutput) {
-        console.log('[Process]', '[stdout]', parent.filename, data);
+        console.log('[Process]', '[stdout]', parent.filename, data.toString());
       }
     });
 
     child.stderr.on('data', (data) => {
       if(parent.verboseOutput) {
-        console.log('[Process]', '[stderr]', parent.filename, data);
+        console.log('[Process]', '[stderr]', parent.filename, data.toString());
       }
     });
 
