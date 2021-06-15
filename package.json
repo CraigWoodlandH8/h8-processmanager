@@ -1,5 +1,5 @@
 {
-  "name": "@herotech8/h8-processmanager",
+  "name": "h8-processmanager",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
